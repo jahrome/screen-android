@@ -672,7 +672,7 @@ struct NewWindow *newwin;
   if (!nwin.aka)
     nwin.aka = Filename(nwin.args[0]);
   strncpy(p->w_akabuf, nwin.aka, sizeof(p->w_akabuf) - 1);
-  if ((nwin.aka = rindex(p->w_akabuf, '|')) != NULL)
+  if ((nwin.aka = strrchr(p->w_akabuf, '|')) != NULL)
     {
       p->w_autoaka = 0;
       *nwin.aka++ = 0;
@@ -1463,7 +1463,7 @@ char *prog, **args, **env;
   char *shargs[MAXARGS + 1];
   register int i, eaccess = 0;
 
-  if (rindex(prog, '/'))
+  if (strrchr(prog, '/'))
     path = "";
   if (!path && !(path = getenv("PATH")))
     path = DefaultPath;

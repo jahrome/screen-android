@@ -72,7 +72,9 @@
 #endif /* sun */
 
 #ifndef linux /* all done in <errno.h> */
+#ifndef android
 extern int errno;
+#endif /* android */
 #endif /* linux */
 #ifndef HAVE_STRERROR
 /* No macros, please */

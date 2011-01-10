@@ -138,7 +138,7 @@ char *rcfile;
 
   if (rcfile)
     {
-      char *rcend = rindex(rc_name, '/');
+      char *rcend = strrchr(rc_name, '/');
       if (*rcfile != '/' && rcend && (rcend - rc_name) + strlen(rcfile) + 2 < sizeof(buf))
 	{
 	  strncpy(buf, rc_name, rcend - rc_name + 1);
@@ -214,7 +214,7 @@ int nopanic;
     }
   while (fgets(buf, sizeof buf, fp) != NULL)
     {
-      if ((p = rindex(buf, '\n')) != NULL)
+      if ((p = strrchr(buf, '\n')) != NULL)
 	*p = '\0';
       if ((argc = Parse(buf, sizeof buf, args, argl)) == 0)
 	continue;

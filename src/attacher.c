@@ -887,7 +887,9 @@ screen_builtin_lck()
 #endif
 
   debug("screen_builtin_lck looking in gcos field\n");
+#ifndef android
   strncpy(fullname, ppp->pw_gecos, sizeof(fullname) - 9);
+#endif /* android */
   fullname[sizeof(fullname) - 9] = 0;
 
   if ((cp1 = index(fullname, ',')) != NULL)

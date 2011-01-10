@@ -827,7 +827,7 @@ int ilen;
 	      if (D_seqp[l] != l)
 		{
 		  q = D_seqp + 1 + l;
-		  if (D_kmaps + D_nseqs > q && q[2] > l && !bcmp(D_seqp - l, q + 3, l))
+		  if (D_kmaps + D_nseqs > q && q[2] > l && !memcmp(D_seqp - l, q + 3, l))
 		    {
 		      debug1("have another mapping (%s), delay execution\n", q + 3);
 		      D_seqh = D_seqp - 3 - l;
@@ -3361,7 +3361,7 @@ int key;
 		      break;
 		  }
 		else
-		  if (*argl == (kme->fl & ~KMAP_NOTIMEOUT) && bcmp(kme->str, *args, *argl) == 0)
+		  if (*argl == (kme->fl & ~KMAP_NOTIMEOUT) && memcmp(kme->str, *args, *argl) == 0)
 		      break;
 	      if (i == kmap_extn)
 		{
@@ -5063,7 +5063,7 @@ int base, psize;
 char *s, *p;
 {
   char *q;
-  if ((q = rindex(s, ':')) != 0)
+  if ((q = strrchr(s, ':')) != 0)
     {
       strncpy(p, q + 1, psize - 1);
       p[psize - 1] = '\0';

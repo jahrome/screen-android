@@ -427,7 +427,7 @@ struct win *wi;
   debug2("SetUtmp %d will get slot %d...\n", wi->w_number, (int)slot);
 
   bzero((char *)&u, sizeof(u));
-  if ((saved_ut = bcmp((char *) &wi->w_savut, (char *)&u, sizeof(u))))
+  if ((saved_ut = memcmp((char *) &wi->w_savut, (char *)&u, sizeof(u))))
     /* restore original, of which we will adopt all fields but ut_host */
     bcopy((char *)&wi->w_savut, (char *) &u, sizeof(u));
 

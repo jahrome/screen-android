@@ -943,7 +943,9 @@ char **av;
     }
   LoginName = SaveStr(LoginName);
 
+#ifndef android
   ppp = getpwbyname(LoginName, ppp);
+#endif /* android */
 
 #if !defined(SOCKDIR) && defined(MULTIUSER)
   if (multi && !multiattach)
