@@ -369,6 +369,7 @@ void
 closeallfiles(except)
 int except;
 {
+  return;
   int f;
 #ifdef SVR4
   struct rlimit rl;
