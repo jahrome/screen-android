@@ -14,7 +14,7 @@ LOCAL_SRC_FILES += $(MY_FILES)
 #LOCAL_SRC_FILES += $(foreach F, $(APP_SUBDIRS), $(addprefix $(F)/,$(notdir $(wildcard $(LOCAL_PATH)/$(F)/*.c))))
 
 LOCAL_MODULE:= screen
-LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_TAGS := eng debug
 
 LOCAL_SHARED_LIBRARIES := libncurses
 
